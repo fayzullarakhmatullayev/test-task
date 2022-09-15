@@ -6,8 +6,18 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: () => import("../views/HomeView.vue"),
+    name: "favorites",
+    component: () => import("@/views/Favorites.vue"),
+  },
+  {
+    path: "/stock",
+    name: "stock",
+    component: () => import("@/views/Stock.vue"),
+  },
+  {
+    path: "/deals",
+    name: "deals",
+    component: () => import("@/views/Deals.vue"),
   },
 ];
 
@@ -15,6 +25,8 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
+  linkActiveClass: "active",
+  linkExactActiveClass: "active",
 });
 
 export default router;
