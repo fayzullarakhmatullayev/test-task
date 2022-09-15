@@ -6,7 +6,9 @@
         <SortComponent />
         <SearchComponent />
       </section>
-      <router-view />
+      <main>
+        <router-view />
+      </main>
     </div>
   </div>
 </template>

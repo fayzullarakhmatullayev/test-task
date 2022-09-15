@@ -1,0 +1,121 @@
+.card {
+  background-color: $white;
+  border: 1px solid $dgray;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 17px;
+  margin-right: 17px;
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
+  &-left {
+    display: flex;
+    gap: 20px;
+    padding: 20px 20px 30px 20px;
+    &__img {
+      display: block;
+      max-width: 256px;
+      width: 100%;
+      height: 256px;
+      border-radius: 10px;
+      overflow: hidden;
+      object-fit: cover;
+      object-position: center;
+    }
+    &__type {
+      font-weight: 400;
+      font-size: 13px;
+      color: $lblue;
+      margin-bottom: 15.5px;
+    }
+    &__title {
+      font-weight: 600;
+      font-size: 15px;
+      color: $blue;
+      margin-bottom: 20px;
+    }
+    &__location {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      gap: 4px;
+      background-color: $gray;
+      border-radius: 5px;
+      margin-bottom: 12px;
+      p {
+        color: $lpurple;
+        font-weight: 400;
+        font-size: 13px;
+      }
+    }
+    &__seller {
+      font-weight: 400;
+      font-size: 13px;
+      color: $blue;
+      margin-bottom: 12px;
+      span {
+        color: $lblue;
+        margin-right: 4px;
+      }
+    }
+    &__product {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 8px;
+      gap: 6px;
+      background: $gray;
+      border-radius: 10px;
+      font-size: 13px;
+      color: $lpurple;
+      margin-bottom: 12px;
+      span {
+        color: $lblue;
+      }
+    }
+    &__desc {
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 1.5;
+      color: $blue;
+    }
+  }
+  &-right {
+    max-width: 314px;
+    width: 100%;
+    min-height: 366px;
+    outline: 1px solid $dgray;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__total {
+      color: $blue;
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 13.5px;
+    }
+    &__info {
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 13px;
+        color: $blue;
+        span {
+          color: $lblue;
+        }
+        &:not(:last-child) {
+          margin-bottom: 12px;
+        }
+      }
+    }
+    &__bottom {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+    }
+  }
+}

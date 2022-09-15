@@ -6,14 +6,15 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "favorites",
-    component: () => import("@/views/Favorites.vue"),
-  },
-  {
-    path: "/stock",
     name: "stock",
     component: () => import("@/views/Stock.vue"),
   },
+  {
+    path: "/favorites",
+    name: "favorites",
+    component: () => import("@/views/Favorites.vue"),
+  },
+
   {
     path: "/deals",
     name: "deals",

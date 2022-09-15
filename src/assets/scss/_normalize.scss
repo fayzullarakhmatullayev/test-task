@@ -27,6 +27,9 @@ select {
   outline: none;
   font-family: "Rubik", sans-serif;
 }
+main {
+  padding-bottom: 100px;
+}
 
 .container {
   max-width: 1232px;
@@ -40,4 +43,33 @@ select {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 40px;
+}
+
+.btn-card {
+  height: 50px;
+  color: $blue;
+  width: 100%;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s;
+  &:hover {
+    background-color: $blue;
+    color: $white;
+  }
+}
+.btn-like {
+  max-width: 50px;
+  width: 100%;
+  height: 50px;
+  svg path {
+    transition: all 0.3s;
+  }
+  &:hover {
+    background-color: $blue;
+    svg path {
+      fill: $white;
+    }
+  }
 }

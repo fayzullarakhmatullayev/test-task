@@ -32,9 +32,6 @@
     border: none;
     width: calc(100% - 48px);
     color: $blue;
-    &::placeholder {
-      color: $blue;
-    }
   }
   &-btn {
     width: 40px;
