@@ -1,0 +1,53 @@
+.sort {
+  display: flex;
+  align-items: center;
+  background-color: $gray;
+  border: 1px solid $dgray;
+  border-radius: 10px;
+  padding: 12px;
+  gap: 10px;
+  &-items {
+    cursor: pointer;
+    color: $lblue;
+    transition: color 0.3s;
+    &.sort-active,
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+.search {
+  max-width: 274px;
+  width: 100%;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  border: 1px solid $dgray;
+  border-radius: 10px;
+  height: 48px;
+  &-input {
+    margin: 0 8px 0 20px;
+    height: 100%;
+    border: none;
+    width: calc(100% - 48px);
+    color: $blue;
+    &::placeholder {
+      color: $blue;
+    }
+  }
+  &-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: $blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    img {
+      display: block;
+    }
+  }
+}

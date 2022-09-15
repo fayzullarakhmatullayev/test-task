@@ -15,7 +15,7 @@
       </li>
       <li class="nav-menu__list">
         <router-link :to="{ name: 'deals' }" class="nav-menu__link">
-          <img src="@/assets/icons/heart.svg" alt="heart" />
+          <img src="@/assets/icons/bag.svg" alt="heart" />
           <p>Сделки</p>
         </router-link>
       </li>
