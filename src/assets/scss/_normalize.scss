@@ -77,3 +77,20 @@ main {
     }
   }
 }
+
+.btn-pay {
+  background-color: $green;
+  color: $white;
+  &:hover {
+    background-color: $dgreen;
+  }
+  &:disabled {
+    background-color: $white;
+    color: $lblue;
+    border: 1px solid $dgray;
+    &:hover {
+      background-color: $white;
+      color: $lblue;
+    }
+  }
+}

@@ -37,7 +37,17 @@
         </ul>
       </div>
       <div class="card-right__bottom">
-        <button class="btn-card">Добавить в сделки</button>
+        <button
+          class="btn-card btn-pay"
+          v-if="isSelectedItem"
+          :disabled="product.isPaid"
+          @click="product.isPaid = true"
+        >
+          {{ !product.isPaid ? "Оплатить" : "Оплачено" }}
+        </button>
+        <button class="btn-card" v-else @click="SET_SELECTED_PRODUCT(product)">
+          Добавить в сделки
+        </button>
         <button
           :class="
             isFavoriteItem
@@ -70,14 +80,14 @@
 import { mapMutations } from "vuex";
 
 export default {
-  props: ["product", "isStockItem", "isFavoriteItem"],
+  props: ["product", "isFavoriteItem", "isSelectedItem"],
   computed: {
     totalSum() {
       return this.product.price * this.product.quantity;
     },
   },
   methods: {
-    ...mapMutations(["SET_FAVORITE_PRODUCT"]),
+    ...mapMutations(["SET_FAVORITE_PRODUCT", "SET_SELECTED_PRODUCT"]),
     prettify(sum) {
       return sum
         .toString()

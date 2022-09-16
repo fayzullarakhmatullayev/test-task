@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     products: [],
     favoriteProducts: [],
+    selectedProducts: [],
     text: "",
     typeIndex: 0,
   },
@@ -26,6 +27,14 @@ export default new Vuex.Store({
       );
       if (index === -1) {
         state.favoriteProducts.push(favoriteProduct);
+      }
+    },
+    SET_SELECTED_PRODUCT(state, selectedProduct) {
+      const index = state.selectedProducts.findIndex(
+        (product) => product.id === selectedProduct.id
+      );
+      if (index === -1) {
+        state.selectedProducts.push({ isPaid: false, ...selectedProduct });
       }
     },
   },
