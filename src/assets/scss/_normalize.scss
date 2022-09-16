@@ -54,6 +54,9 @@ main {
   cursor: pointer;
   border-radius: 10px;
   transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &:hover {
     background-color: $blue;
     color: $white;
@@ -66,6 +69,7 @@ main {
   svg path {
     transition: all 0.3s;
   }
+  &-active,
   &:hover {
     background-color: $blue;
     svg path {

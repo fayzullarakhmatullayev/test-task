@@ -1,5 +1,6 @@
 <template>
   <nav class="nav">
+    <div class="nav-top"></div>
     <ul class="nav-menu">
       <li class="nav-menu__list">
         <router-link :to="{ name: 'favorites' }" class="nav-menu__link">

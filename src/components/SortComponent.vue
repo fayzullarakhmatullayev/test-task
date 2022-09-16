@@ -1,10 +1,10 @@
 <template>
   <div class="sort">
     <div
-      :class="`sort-items ${sort.isSelected ? 'sort-active' : ''}`"
+      :class="`sort-items ${typeIndex === idx ? 'sort-active' : ''}`"
       v-for="(sort, idx) in sortItems"
       :key="sort.value"
-      @click="handleClick(idx)"
+      @click="SET_TYPE_INDEX(idx)"
     >
       {{ sort.name }}
     </div>
@@ -12,7 +12,10 @@
 </template>
 
 <script>
+import { mapMutations, mapState } from "vuex";
+
 export default {
+  emits: ["sortByType"],
   data: () => ({
     sortItems: [
       {
@@ -32,11 +35,11 @@ export default {
       },
     ],
   }),
+  computed: {
+    ...mapState(["typeIndex"]),
+  },
   methods: {
-    handleClick(idx) {
-      this.sortItems.forEach((item) => (item.isSelected = false));
-      this.sortItems[idx].isSelected = true;
-    },
+    ...mapMutations(["SET_TYPE_INDEX"]),
   },
 };
 </script>

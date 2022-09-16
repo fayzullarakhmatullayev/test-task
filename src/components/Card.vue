@@ -1,45 +1,51 @@
 <template>
   <div class="card">
     <div class="card-left">
-      <img src="@/assets/icons/Image.jpg" class="card-left__img" alt="Image" />
+      <div class="card-left__img">
+        <img :src="product.image" :alt="product.name" />
+      </div>
       <div class="card-left__content">
-        <p class="card-left__type">Аукцион</p>
-        <h3 class="card-left__title">Пиломатериалы брус доска</h3>
+        <p class="card-left__type">{{ product.type_name }}</p>
+        <h3 class="card-left__title">{{ product.name }}</h3>
         <div class="card-left__location">
           <img src="@/assets/icons/geo.svg" alt="geo" />
-          <p>Санкт-Петербург, Красное Село</p>
+          <p>{{ product.location }}</p>
         </div>
         <div class="card-left__seller">
-          <span>Продавец </span>Торговый Дом ГОСТ
+          <span>Продавец </span>{{ product.seller }}
         </div>
         <div class="card-left__product">
-          <span>Вид товара </span>Стройматериалы
+          <span>Вид товара </span>{{ product.type_of_product }}
         </div>
         <div class="card-left__desc">
-          Пиломатериалы брус доска. Распродажа пиломатериалов в связи закрытием
-          ЛЕСО-БАЗЫ! Успейте приобрести пиломатериал со скидками до закрытия
-          01.06.2022 ! Мы стараемся быть не такими как все и даем вам: Доставка
-          в согласованный день...
+          {{ product.description }}
         </div>
       </div>
     </div>
     <div class="card-right">
       <div class="card-right__top">
-        <h3 class="card-right__total">33 000 ₽</h3>
+        <h3 class="card-right__total">{{ prettify(totalSum) }} ₽</h3>
         <ul class="card-right__info">
           <li>
             <span>Количество</span>
-            <p>3 шт.</p>
+            <p>{{ product.quantity }} шт.</p>
           </li>
           <li>
             <span>Стоимость за штуку</span>
-            <p>11 000 ₽</p>
+            <p>{{ prettify(product.price) }} ₽</p>
           </li>
         </ul>
       </div>
       <div class="card-right__bottom">
         <button class="btn-card">Добавить в сделки</button>
-        <button class="btn-card btn-like">
+        <button
+          :class="
+            isFavoriteItem
+              ? 'btn-card btn-like btn-like-active'
+              : 'btn-card btn-like'
+          "
+          @click="SET_FAVORITE_PRODUCT(product)"
+        >
           <svg
             width="20"
             height="20"
@@ -61,5 +67,22 @@
 </template>
 
 <script>
-export default {};
+import { mapMutations } from "vuex";
+
+export default {
+  props: ["product", "isStockItem", "isFavoriteItem"],
+  computed: {
+    totalSum() {
+      return this.product.price * this.product.quantity;
+    },
+  },
+  methods: {
+    ...mapMutations(["SET_FAVORITE_PRODUCT"]),
+    prettify(sum) {
+      return sum
+        .toString()
+        .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ");
+    },
+  },
+};
 </script>
